@@ -5,4 +5,19 @@ class Idea {
         this.body = body;
         this.quality = quality || 'Swill';
     }
+    saveToStorage() {
+
+    }
+
+    deleteFromStorage() {
+
+    }
+
+    updateContent() {
+
+    }
+
+    updateQuality() {
+      
+    }
 }
