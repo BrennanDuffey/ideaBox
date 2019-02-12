@@ -1,3 +1,36 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+header {
+  background-color: #312A2F;
+}
+
+h1 {
+  font-weight: 800;
+  color: #ADA6CA;
+}
+
+h1 span {
+  font-weight: 800;
+  color: #fff;
+}
+
+.input-section {
+  background-color: #EEF2F2;
+}
+
+.save-button {
+  background-color: #5D5C6A;
+  color: #fff;
+  font-weight: 800;
+}
+
+.card-section {
+  background-color: #FBFDFD;
+}
+
 img {
   width: 30px;
 }
