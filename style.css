@@ -1,6 +1,17 @@
+*,
+*:after,
+*:before {
+ box-sizing: border-box;
+}
+
 * {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+}
+
+p,
+h1 {
+  margin: 0;
 }
 
 header {
@@ -27,10 +38,37 @@ h1 span {
   font-weight: 800;
 }
 
+/*card Styles*/
+
 .card-section {
   background-color: #FBFDFD;
+  display: flex;
+  justify-content: space-around;
 }
 
-img {
+.card-footer {
+  display: flex;
+  padding: 5px;
+  border-top: solid 2px #DAD9DE;
+  align-content: center;
+  position: relative;
+}
+
+.card-btn {
   width: 30px;
+  height: 30px;
+  padding: 5px;
+}
+
+.delete-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.demo-card {
+  width: 50%;
+  max-width: 500px;
+  border: solid 2px #DAD9DE;
+  border-radius: 5px;
 }
