@@ -16,11 +16,16 @@ h1 {
 
 header {
   background-color: #312A2F;
+  display: flex;
+  height: 75px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 h1 {
   font-weight: 800;
   color: #ADA6CA;
+  align-self: center;
 }
 
 h1 span {
@@ -28,8 +33,26 @@ h1 span {
   color: #fff;
 }
 
+.header-search {
+  display: flex;
+  align-self: center;
+  margin-left: auto; 
+}
+
+.search-input {
+  border-radius: 5px 0 0 5px;
+}
+
 .input-section {
   background-color: #EEF2F2;
+  display: flex;
+  justify-content: center;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .save-button {
@@ -58,6 +81,7 @@ h1 span {
   width: 30px;
   height: 30px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .delete-btn {

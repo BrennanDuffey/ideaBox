@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon.ico" />
     <link rel="shortcut icon" href="images/icon.ico" />
     <title>ideabox</title>
     <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
@@ -16,14 +17,16 @@
         ideabox
         <span>triples</span>
       </h1>
-      <input type="search" name="search" placeholder="Search">
-      <button>
-        <i class="fas fa-search"></i>
-      </button>
+      <form class="header-search">
+        <input type="search" name="search" placeholder="Search" class="search-input">
+        <button>
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
     </header>
     <main>
     <section class="input-section">
-      <form>
+      <form class="input-form">
         <label for="title">Title</label>
         <input type="text" name="title" id="title">
         <label for="body">Body</label>
@@ -32,7 +35,7 @@
       </form>
     </section>
     <section class="card-section">
-     <!--  <article class="demo-card">
+      <article class="demo-card">
         <h2 class="card-title">Lorem ipsum</h2>
         <p class="card-body">
           Lorem ipsum dolor sit amet, consectetur adipiscing pharetra nisi et luctuselit. Sed mollis mollis est id molestie. Donec facibus interdum malesuada.
@@ -46,7 +49,7 @@
           </p>
           <img alt="delete button" src="images/delete.svg" class="card-btn delete-btn">
         </div>
-      </article> -->
+      </article>
     </section>
     </main>
   </body>
