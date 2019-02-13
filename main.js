@@ -19,7 +19,10 @@ function saveIdea(e) {
   var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
   // newIdeaObject();
   appendCard(newIdea);
-  console.log(newIdea);
+  ideaArray.push(newIdea);
+  titleInput.value = '';
+  bodyInput.value = '';
+  console.log(ideaArray);
 }
 
 function appendCard(idea) {
