@@ -11,18 +11,16 @@ window.addEventListener('load', onPageLoad)
 saveBtn.addEventListener('click', saveIdea)
 
 function onPageLoad() {
-
+  JSON.parse(localStorage.getItem("storedIdeas"))
 }
 
 function saveIdea(e) {
   e.preventDefault();
   var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
-  // newIdeaObject();
   appendCard(newIdea);
   ideaArray.push(newIdea);
-  titleInput.value = '';
-  bodyInput.value = '';
-  console.log(ideaArray);
+  newIdea.saveToStorage(ideaArray);
+  clearInputs();
 }
 
 function appendCard(idea) {
@@ -43,6 +41,11 @@ function appendCard(idea) {
           <img alt="delete btn" src="images/delete.svg" class="card-btn delete-btn">
         </div>
       </article>`;
+}
+
+function clearInputs() {
+  titleInput.value = '';
+  bodyInput.value = '';
 }
 
 // function newIdeaObject() {
