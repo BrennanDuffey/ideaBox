@@ -23,26 +23,26 @@ header {
 }
 
 h1 {
-  font-weight: 800;
-  color: #ADA6CA;
   align-self: center;
+  color: #ADA6CA;
+  font-weight: 800;
 }
 
 h1 span {
-  font-weight: 800;
   color: #fff;
+  font-weight: 800;
 }
 
 .header-search {
-  display: flex;
   align-self: center;
+  display: flex;
   margin-left: auto; 
 }
 
 .search-input {
+  border-color: #ACAAB5;
   border-radius: 5px 0 0 5px;
   padding: 5px;
-  border-color: #ACAAB5;
 }
 
 .search-btn {
@@ -67,28 +67,28 @@ h1 span {
 }
 
 #title-input {
-  margin: 10px;
-  height: 40px;
-  padding: 5px;
-  border: #D4D2D8 2px solid;
   border-radius: 5px;
+  border: #D4D2D8 2px solid;
+  height: 40px;
+  margin: 10px;
+  padding: 5px;
 }
 
 #body-input {
+  border-radius: 5px;
+  border: #D4D2D8 2px solid;
   margin: 10px;
   padding: 5px;
-  border: #D4D2D8 2px solid;
-  border-radius: 5px;
 
 }
 
 .save-btn {
   background-color: #5D5C6A;
+  border-radius: 5px;
   color: #fff;
   font-weight: 800;
-  padding: 10px;
   margin-top: 10px;
-  border-radius: 5px;
+  padding: 10px;
 }
 
 /*card Styles*/
@@ -101,29 +101,29 @@ h1 span {
 }
 
 .card-footer {
+  align-content: center;
+  border-top: solid 2px #DAD9DE;
   display: flex;
   padding: 5px;
-  border-top: solid 2px #DAD9DE;
-  align-content: center;
   position: relative;
 }
 
 .card-btn {
-  width: 30px;
+  cursor: pointer;
   height: 30px;
   padding: 5px;
-  cursor: pointer;
+  width: 30px;
 }
 
 .delete-btn {
+  bottom: 0;
   position: absolute;
   right: 0;
-  bottom: 0;
 }
 
 .demo-card {
-  width: 50%;
-  max-width: 500px;
-  border: solid 2px #DAD9DE;
   border-radius: 5px;
+  border: solid 2px #DAD9DE;
+  max-width: 500px;
+  width: 50%;
 }
