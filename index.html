@@ -26,30 +26,32 @@
     </header>
     <main>
     <section class="input-section">
-      <form class="input-form">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title">
-        <label for="body">Body</label>
-        <textarea name="body" id="body"></textarea>
-        <button class="save-button">Save</button>
+      <form class="new-idea-form">
+        <label for="title-input">Title</label>
+        <input class="user-input" type="text" id="title-input">
+        <label for="body-input">Body</label>
+        <textarea class="user-input" maxlength="140" id="body-input" rows="4" cols="40"></textarea>
+        <button type="submit" class="save-btn">Save</button>
       </form>
     </section>
     <section class="card-section">
-      <article class="demo-card">
-        <h2 class="card-title">Lorem ipsum</h2>
+      <!-- <article class="idea-card demo-card">
+        <h2 class="card-title">
+          ${titleInput.value}
+        </h2>
         <p class="card-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing pharetra nisi et luctuselit. Sed mollis mollis est id molestie. Donec facibus interdum malesuada.
+          ${bodyInput.value}
         </p>
         <div class="card-footer">
-          <img alt="upvote button" src="images/upvote.svg" class="card-btn upvote-btn">
-          <img alt="downvote button" src="images/downvote.svg" class="card-btn downvote-btn">
+          <img alt="upvote btn" src="images/upvote.svg" class="card-btn upvote-btn">
+          <img alt="downvote btn" src="images/downvote.svg" class="card-btn downvote-btn">
           <p>
             Quality: 
-            <span class="card-quality">Swill</span>
+            <span class="card-quality">idea.quality</span>
           </p>
-          <img alt="delete button" src="images/delete.svg" class="card-btn delete-btn">
+          <img alt="delete btn" src="images/delete.svg" class="card-btn delete-btn">
         </div>
-      </article>
+      </article> -->
     </section>
     </main>
   </body>
