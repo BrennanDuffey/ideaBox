@@ -41,12 +41,19 @@ h1 span {
 
 .search-input {
   border-radius: 5px 0 0 5px;
+  padding: 5px;
+  border-color: #ACAAB5;
+}
+
+.search-btn {
+  border-radius: 0 5px 5px 0;
 }
 
 .input-section {
   background-color: #EEF2F2;
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
 
 .new-idea-form {
@@ -55,10 +62,33 @@ h1 span {
   width: 50%;
 }
 
+.input-section label {
+  font-size: 18px;
+}
+
+#title-input {
+  margin: 10px;
+  height: 40px;
+  padding: 5px;
+  border: #D4D2D8 2px solid;
+  border-radius: 5px;
+}
+
+#body-input {
+  margin: 10px;
+  padding: 5px;
+  border: #D4D2D8 2px solid;
+  border-radius: 5px;
+
+}
+
 .save-btn {
   background-color: #5D5C6A;
   color: #fff;
   font-weight: 800;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
 /*card Styles*/
@@ -67,6 +97,7 @@ h1 span {
   background-color: #FBFDFD;
   display: flex;
   justify-content: space-around;
+  padding: 20px;
 }
 
 .card-footer {
