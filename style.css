@@ -49,13 +49,13 @@ h1 span {
   justify-content: center;
 }
 
-.input-form {
+.new-idea-form {
   display: flex;
   flex-direction: column;
   width: 50%;
 }
 
-.save-button {
+.save-btn {
   background-color: #5D5C6A;
   color: #fff;
   font-weight: 800;
