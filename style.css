@@ -40,13 +40,17 @@ h1 span {
 }
 
 .search-input {
-  border-color: #ACAAB5;
+  border: solid 2px #ACAAB5;
   border-radius: 5px 0 0 5px;
   padding: 5px;
 }
 
 .search-btn {
+  background-color: #ACAAB5;
+  border-color: #ACAAB5;
   border-radius: 0 5px 5px 0;
+  color: #fff;
+  padding: 6px;
 }
 
 .input-section {
