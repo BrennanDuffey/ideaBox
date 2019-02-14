@@ -9,8 +9,9 @@ class Idea {
         localStorage.setItem("storedIdeas", JSON.stringify(ideaArray));
     }
 
-    deleteFromStorage() {
-
+    deleteFromStorage(updatedArray) {
+        this.saveToStorage(updatedArray);
+        // localStorage.setItem("storedIdeas", JSON.stringify(ideaArray));
     }
 
     updateContent() {
