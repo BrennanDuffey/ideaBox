@@ -11,7 +11,13 @@ window.addEventListener('load', onPageLoad)
 saveBtn.addEventListener('click', saveIdea)
 
 function onPageLoad() {
-  JSON.parse(localStorage.getItem("storedIdeas"))
+  var parsedArray = JSON.parse(localStorage.getItem("storedIdeas"));
+  parsedArray.forEach(function(idea) {
+  var newIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
+  appendCard(newIdea);
+  ideaArray.push(newIdea);
+  newIdea.saveToStorage(ideaArray)
+  })
 }
 
 function saveIdea(e) {
