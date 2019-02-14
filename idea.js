@@ -3,7 +3,7 @@ class Idea {
         this.id = id;
         this.title = title;
         this.body = body;
-        this.quality = quality || 'Swill';
+        this.quality = quality || 'GREAT!!';
     }
     saveToStorage(ideaArray) {
         localStorage.setItem("storedIdeas", JSON.stringify(ideaArray));
