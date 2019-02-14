@@ -123,7 +123,7 @@ h1 span {
   align-items: center;
   background-color: #FBFDFD;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   padding: 20px;
 }
 
@@ -134,10 +134,14 @@ h1 span {
 .card-title {
   color: #6e646b;
   font-weight: 800;
+  margin: 10px 0;
+  padding: 5px;
 }
 
 .card-body {
   color: #7c7879;
+  font-size: 18px;
+  padding: 5px;
 }
 
 .card-footer {
@@ -148,7 +152,13 @@ h1 span {
   position: relative;
 }
 
-.card-footer p,
+.card-footer p {
+  color: #7c7879;
+  font-weight: 800;
+  position: relative;
+  top: 5px;
+}
+
 .card-quality {
   color: #7c7879;
   font-weight: 800;
@@ -157,14 +167,18 @@ h1 span {
 .card-btn {
   cursor: pointer;
   height: 30px;
-  padding: 5px;
+  padding: 2px;
   width: 30px;
 }
 
+.downvote-btn {
+  margin: 0 10px;
+}
+
 .delete-btn {
-  bottom: 0;
+  bottom: 5px;
   position: absolute;
-  right: 0;
+  right: 5px;
 }
 
 .demo-card {

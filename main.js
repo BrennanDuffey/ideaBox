@@ -44,7 +44,7 @@ function appendCard(idea) {
           <img alt="downvote btn" src="images/downvote.svg" class="card-btn downvote-btn">
           <p>
             Quality: 
-            <span class="card-quality">idea.quality</span>
+            <span class="card-quality">${idea.quality}</span>
           </p>
           <img alt="delete btn" src="images/delete.svg" class="card-btn delete-btn">
         </div>
