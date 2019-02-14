@@ -1,3 +1,6 @@
+/*/////UNIVERSAL/////*/
+
+
 *,
 *:after,
 *:before {
@@ -13,6 +16,8 @@ p,
 h1 {
   margin: 0;
 }
+
+/*/////HEADER/////*/
 
 header {
   background-color: #312A2F;
@@ -60,7 +65,9 @@ h1 span {
   cursor: pointer;
 }
 
-.input-section {
+/*/////IDEA FORM/////*/
+
+.form-section {
   background-color: #EEF2F2;
   display: flex;
   justify-content: center;
@@ -73,7 +80,7 @@ h1 span {
   width: 50%;
 }
 
-.input-section label {
+.form-label {
   font-size: 18px;
 }
 
@@ -111,7 +118,7 @@ h1 span {
   margin-top: 10px;
 }
 
-.filter {
+.filter-btn {
   background-color: #6e646b;
   border-radius: 5px;
   color: #fff;
@@ -122,13 +129,16 @@ h1 span {
   width: 170px;
 }
 
-.filter:hover,
+.filter-btn:hover,
 .save-btn:hover {
   background-color: #524649;
   cursor: pointer;
 }
 
-/*card Styles*/
+/*/////CARD SECTION/////*/
+
+
+/*card styles*/
 
 .card-section {
   align-items: center;
@@ -163,7 +173,7 @@ h1 span {
   position: relative;
 }
 
-.card-footer p {
+.quality-label {
   color: #7c7879;
   font-weight: 800;
   position: relative;
@@ -182,17 +192,17 @@ h1 span {
   width: 30px;
 }
 
-.downvote-btn {
+#downvote-btn {
   margin: 0 10px;
 }
 
-.delete-btn {
+#delete-btn {
   bottom: 5px;
   position: absolute;
   right: 5px;
 }
 
-.demo-card {
+.idea-card {
   border-radius: 5px;
   border: solid 2px #DAD9DE;
   margin-bottom: 20px;
