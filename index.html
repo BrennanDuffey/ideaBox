@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon.ico" />
-    <link rel="shortcut icon" href="images/icon.ico" />
     <title>ideabox</title>
     <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -25,23 +24,38 @@
       </form>
     </header>
     <main>
-    <section class="input-section">
-      <form class="new-idea-form">
-        <label for="title-input">Title</label>
-        <input class="user-input" type="text" id="title-input">
-        <label for="body-input">Body</label>
-        <textarea class="user-input" maxlength="140" id="body-input" rows="4" cols="40"></textarea>
-        <button type="submit" class="save-btn">Save</button>
-      </form>
-    </section>
-    <section class="filter-buttons">
-      <button class="genius filter">Genius</button>
-      <button class="plausible filter">Plausible</button>
-      <button class="swill filter">Swill</button>
-    </section>
-    <section class="card-section">
-      <!-- NEW CARD HTML HERE -->
-    </section>
+      <section class="input-section">
+        <form class="new-idea-form">
+          <label for="title-input">
+            Title
+          </label>
+          <input class="user-input" type="text" id="title-input">
+            <!-- TITLE INPUT -->
+          <label for="body-input">
+            Body
+          </label>
+          <textarea class="user-input" maxlength="140" id="body-input" rows="4" cols="40">
+            <!-- BODY INPUT -->
+          </textarea>
+          <button type="submit" class="save-btn">
+            Save
+          </button>
+        </form>
+      </section>
+      <section class="filter-buttons">
+        <button id="genius-btn" class="filter-btn">
+          Genius
+        </button>
+        <button id="plausible-btn" class="filter-btn">
+          Plausible
+        </button>
+        <button id="swill-btn" class="filter-btn">
+          Swill
+        </button>
+      </section>
+      <section class="card-section">
+        <!-- IDEA CARDS -->
+      </section>
     </main>
   </body>
   <script type="text/javascript" src="idea.js"></script>
