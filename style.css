@@ -83,12 +83,38 @@ h1 span {
 }
 
 .save-btn {
-  background-color: #5D5C6A;
+  background-color: #6e646b;
   border-radius: 5px;
   color: #fff;
   font-weight: 800;
   margin-top: 10px;
   padding: 10px;
+}
+
+/*filter-buttons*/
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.filter {
+  background-color: #6e646b;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 800;
+  height: 35px;
+  margin: 10px;
+  width: 170px;
+}
+
+.filter:hover,
+.save-btn:hover {
+  background-color: #524649;
+  cursor: pointer;
 }
 
 /*card Styles*/
@@ -101,12 +127,31 @@ h1 span {
   padding: 20px;
 }
 
+.card-main {
+  padding: 0 10px 10px
+}
+
+.card-title {
+  color: #6e646b;
+  font-weight: 800;
+}
+
+.card-body {
+  color: #7c7879;
+}
+
 .card-footer {
   align-content: center;
   border-top: solid 2px #DAD9DE;
   display: flex;
   padding: 5px;
   position: relative;
+}
+
+.card-footer p,
+.card-quality {
+  color: #7c7879;
+  font-weight: 800;
 }
 
 .card-btn {
@@ -125,6 +170,7 @@ h1 span {
 .demo-card {
   border-radius: 5px;
   border: solid 2px #DAD9DE;
+  margin-bottom: 20px;
   max-width: 500px;
   width: 50%;
 }

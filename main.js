@@ -31,12 +31,14 @@ function saveIdea(e) {
 
 function appendCard(idea) {
   cardSection.innerHTML += `<article data-id=${idea.id} class="idea-card demo-card">
-        <h2 class="card-title" contenteditable="true">
-          ${idea.title}
-        </h2>
-        <p class="card-body" contenteditable="true">
-          ${idea.body}
-        </p>
+        <div class="card-main">
+          <h2 class="card-title" contenteditable="true">
+            ${idea.title}
+          </h2>
+          <p class="card-body" contenteditable="true">
+            ${idea.body}
+          </p>
+        </div>
         <div class="card-footer">
           <img alt="upvote btn" src="images/upvote.svg" class="card-btn upvote-btn">
           <img alt="downvote btn" src="images/downvote.svg" class="card-btn downvote-btn">
