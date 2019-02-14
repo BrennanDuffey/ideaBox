@@ -94,9 +94,10 @@ h1 span {
 /*card Styles*/
 
 .card-section {
+  align-items: center;
   background-color: #FBFDFD;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   padding: 20px;
 }
 
