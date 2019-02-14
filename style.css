@@ -26,6 +26,7 @@ h1 {
   align-self: center;
   color: #ADA6CA;
   font-weight: 800;
+  cursor: default;
 }
 
 h1 span {
@@ -51,6 +52,12 @@ h1 span {
   border-radius: 0 5px 5px 0;
   color: #fff;
   padding: 6px;
+}
+
+.search-btn:hover {
+  background-color: #524649;
+  border-color: #524649;
+  cursor: pointer;
 }
 
 .input-section {
@@ -90,7 +97,7 @@ h1 span {
   background-color: #6e646b;
   border-radius: 5px;
   color: #fff;
-  font-weight: 800;
+  font-weight: 700;
   margin-top: 10px;
   padding: 10px;
 }
@@ -109,7 +116,7 @@ h1 span {
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  font-weight: 800;
+  font-weight: 700;
   height: 35px;
   margin: 10px;
   width: 170px;
