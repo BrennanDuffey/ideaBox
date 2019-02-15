@@ -190,6 +190,15 @@ h1 span {
   height: 30px;
   padding: 2px;
   width: 30px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.card-btn:active {
+  border: 2px solid #7c7879;
+
 }
 
 #downvote-btn {

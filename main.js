@@ -6,13 +6,13 @@ var saveBtn = document.querySelector('.save-btn');
 var searchInput = document.querySelector('.search-input');
 var titleInput = document.querySelector('#title-input');
 
-cardSection.addEventListener('click', deleteCard)
+cardSection.addEventListener('click', deleteCard);
 window.addEventListener('load', onPageLoad);
 saveBtn.addEventListener('click', saveIdea);
 
 function onPageLoad() {
     ideaArray.forEach(function(idea) {
-        var newIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
+        let newIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
         appendCard(newIdea);
         clearInputs();
         // ideaArray.push(newIdea);
@@ -22,7 +22,7 @@ function onPageLoad() {
 
 function saveIdea(e) {
     e.preventDefault();
-    var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
+    let newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
     appendCard(newIdea);
     ideaArray.push(newIdea);
     newIdea.saveToStorage(ideaArray);
@@ -41,13 +41,19 @@ function appendCard(idea) {
           </p>
         </div>
         <div class="card-footer">
-          <img alt="upvote btn" src="images/upvote.svg" class="card-btn" id="upvote-btn">
-          <img alt="downvote btn" src="images/downvote.svg" class="card-btn" id="downvote-btn">
+          <button class="card-btn" id="upvote-btn">
+            <img alt="increase quality rating" src="images/upvote.svg" >
+          </button>
+          <button class="card-btn" id="downvote-btn">
+            <img alt="decrease quality rating" src="images/downvote.svg" >
+          </button>
           <p class="quality-label">
             Quality: 
             <span class="card-quality">${idea.quality}</span>
           </p>
-          <img alt="delete btn" src="images/delete.svg" class="card-btn" id="delete-btn">
+          <button class="card-btn" id="delete-btn">
+            <img alt="Delete idea card" src="images/delete.svg" >
+          </button>
         </div>
       </article>`;
 }
@@ -69,6 +75,6 @@ function deleteCard (e) {
   }
 }
 
-// function newIdeaObject() {
-//   return newIdea;
+// function updateQuality {
+
 // }
