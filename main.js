@@ -9,7 +9,8 @@ var ideaArray = JSON.parse(localStorage.getItem("storedIdeas")) || [];
 
 cardSection.addEventListener('click', deleteCard)
 saveBtn.addEventListener('click', saveIdea);
-searchBtn.addEventListener('click', searchIdeas)
+searchBtn.addEventListener('click', searchIdeas);
+searchInput.addEventListener('keydown', typeSearch);
 window.addEventListener('load', onPageLoad);
 
 function onPageLoad() {
@@ -17,6 +18,16 @@ function onPageLoad() {
     var newIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
     appendCard(newIdea);
     clearInputs();
+  });
+}
+
+function typeSearch() {
+  var filterIdeas = ideaArray.filter(function(idea) {
+    return idea.body.includes(searchInput.value) || idea.title.includes(searchInput.value);
+  });
+  cardSection.innerHTML = "";
+  filterIdeas.forEach(function(idea) {
+    appendCard(idea);
   });
 }
 
@@ -34,7 +45,6 @@ function searchIdeas(e) {
 
 function saveIdea(e) {
   e.preventDefault();
-  debugger;
   var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
   appendCard(newIdea);
   ideaArray.push(newIdea);
