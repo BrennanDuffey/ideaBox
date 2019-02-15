@@ -1,10 +1,10 @@
 var bodyInput = document.querySelector('#body-input');
 var cardSection = document.querySelector('.card-section');
-var ideaArray = JSON.parse(localStorage.getItem("storedIdeas")) || [];
 var ideaCard = document.querySelector('.idea-card');
 var saveBtn = document.querySelector('.save-btn');
 var searchInput = document.querySelector('.search-input');
 var titleInput = document.querySelector('#title-input');
+var ideaArray = JSON.parse(localStorage.getItem("storedIdeas")) || [];
 
 cardSection.addEventListener('click', deleteCard);
 window.addEventListener('load', onPageLoad);
@@ -12,8 +12,8 @@ saveBtn.addEventListener('click', saveIdea);
 
 function onPageLoad() {
     ideaArray.forEach(function(idea) {
-        let newIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
-        appendCard(newIdea);
+        var oldIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
+        appendCard(oldIdea);
         clearInputs();
         // ideaArray.push(newIdea);
         // this just doubles the array size on load for some reason pretty sure we don't need
@@ -52,7 +52,7 @@ function appendCard(idea) {
             <span class="card-quality">${idea.quality}</span>
           </p>
           <button class="card-btn" id="delete-btn">
-            <img alt="Delete idea card" src="images/delete.svg" >
+            <img alt="Delete idea card" id="delete-img" src="images/delete.svg" >
           </button>
         </div>
       </article>`;
@@ -63,15 +63,14 @@ function clearInputs() {
     bodyInput.value = '';
 }
 
-function deleteCard (e) {
-  if (e.target.id === 'delete-btn') {
-    e.target.parentElement.parentElement.remove();
-    console.log(ideaArray);
-    var newIdea = new Idea(e.target.parentElement.parentElement.dataset.id);
-    ideaArray = ideaArray.filter(obj => obj.id != newIdea.id);
-    newIdea.deleteFromStorage(ideaArray)
-    console.log(newIdea.id)
-    console.log(ideaArray)
+function deleteCard(e) {
+  var cardToDelete = e.target.parentElement.parentElement.parentElement;
+  var ideaToDelete = new Idea(cardToDelete.dataset.id);
+  if (e.target.id === 'delete-btn' || 'delete-img') {
+    cardToDelete.remove();
+    ideaArray = ideaArray.filter(obj => obj.id != ideaToDelete.id);
+    ideaToDelete.deleteFromStorage(ideaArray);
+    // console.log(ideaArray);
   }
 }
 

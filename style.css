@@ -85,19 +85,15 @@ h1 span {
 }
 
 #title-input {
-  border-radius: 5px;
-  border: #D4D2D8 2px solid;
   height: 40px;
-  margin: 10px;
-  padding: 5px;
 }
 
+#title-input, 
 #body-input {
   border-radius: 5px;
   border: #D4D2D8 2px solid;
-  margin: 10px;
+  margin: 10px 0;
   padding: 5px;
-
 }
 
 .save-btn {
