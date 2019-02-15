@@ -1,15 +1,17 @@
 var bodyInput = document.querySelector('#body-input');
 var cardSection = document.querySelector('.card-section');
-// var ideaCard = document.querySelector('.idea-card');
 var saveBtn = document.querySelector('.save-btn');
-// var searchInput = document.querySelector('.search-input');
+var searchBtn = document.querySelector('.search-btn');
+var searchInput = document.querySelector('.search-input');
 var titleInput = document.querySelector('#title-input');
 var ideaArray = JSON.parse(localStorage.getItem("storedIdeas")) || [];
 var qualityArray = ['swill', 'plausible', 'genius'];
 
 cardSection.addEventListener('click', cardButtonClick);
-window.addEventListener('load', onPageLoad);
 saveBtn.addEventListener('click', saveIdea);
+searchBtn.addEventListener('click', searchIdeas);
+searchInput.addEventListener('keydown', typeSearch);
+window.addEventListener('load', onPageLoad);
 
 function onPageLoad() {
     ideaArray.forEach(function(idea) {
@@ -30,6 +32,27 @@ function saveIdea(e) {
     clearInputs();
 }
 
+function typeSearch() {
+  var filterIdeas = ideaArray.filter(function(idea) {
+    return idea.body.includes(searchInput.value) || idea.title.includes(searchInput.value);
+  });
+  cardSection.innerHTML = "";
+  filterIdeas.forEach(function(idea) {
+    appendCard(idea);
+  });
+}
+
+function searchIdeas(e) {
+  e.preventDefault();
+  var filterIdeas = ideaArray.filter(function(idea) {
+    return idea.body.includes(searchInput.value) || idea.title.includes(searchInput.value);
+  });
+  cardSection.innerHTML = "";
+  filterIdeas.forEach(function(idea) {
+    appendCard(idea);
+  });
+  searchInput.value = '';
+}
 function appendCard(idea) {
     cardSection.innerHTML += 
     `<article data-id=${idea.id} class="idea-card">
@@ -60,8 +83,8 @@ function appendCard(idea) {
 }
 
 function clearInputs() {
-    titleInput.value = '';
-    bodyInput.value = '';
+  titleInput.value = '';
+  bodyInput.value = '';
 }
 
 function cardButtonClick(e) {
@@ -69,8 +92,11 @@ function cardButtonClick(e) {
   if (e.target.id === 'delete') {
     deleteCard(targetCard);
   }
-  if (e.target.id === 'upvote' || 'downvote') {
-    console.log("change quality");
+  if (e.target.id === 'upvote') {
+    console.log('increaseQuality');
+  }
+  if (e.target.id === 'downvote') {
+    console.log("decreaseQuality");
   }
 }
 
