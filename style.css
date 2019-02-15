@@ -82,6 +82,9 @@ h1 span {
 
 .form-label {
   font-size: 18px;
+  left: 10px;
+  position: relative;
+  top: 4px;
 }
 
 #title-input {
