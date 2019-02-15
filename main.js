@@ -60,12 +60,9 @@ function clearInputs() {
 function deleteCard (e) {
   if (e.target.id === 'delete-btn') {
     e.target.parentElement.parentElement.remove();
-    console.log(ideaArray);
     var newIdea = new Idea(e.target.parentElement.parentElement.dataset.id);
-    ideaArray = ideaArray.filter(obj => obj.id != newIdea.id);
-    newIdea.deleteFromStorage(ideaArray)
-    console.log(newIdea.id)
-    console.log(ideaArray)
+    ideaArray = ideaArray.filter(obj => obj.id !== parseInt(newIdea.id));
+    newIdea.deleteFromStorage(ideaArray);
   }
 }
 
