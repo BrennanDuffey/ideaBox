@@ -7,7 +7,7 @@ var titleInput = document.querySelector('#title-input');
 var ideaArray = [] ;
 var qualityArray = ['Swill', 'Plausible', 'Genius'];
 
-cardSection.addEventListener('click', cardButtonClick);
+cardSection.addEventListener('click', editCard);
 saveBtn.addEventListener('click', saveIdea);
 searchBtn.addEventListener('click', searchIdeas);
 searchInput.addEventListener('keydown', typeSearch);
@@ -59,22 +59,22 @@ function appendCard(idea) {
     cardSection.innerHTML += 
     `<article data-id=${idea.id} class="idea-card">
         <div class="card-main">
-          <h2 class="card-title" contenteditable="true">
+          <h2 class="card-text card-title" contenteditable="true">
             ${idea.title}
           </h2>
-          <p class="card-body" contenteditable="true">
+          <p class="card-text card-body" contenteditable="true">
             ${idea.body}
           </p>
         </div>
         <div class="card-footer">
           <button class="card-btn" id="upvote-btn">
-            <img alt="increase quality rating" src="images/upvote.svg" id="upvote">
+            <img alt="increase quality rating" src="images/upvote.svg" id="upvote" class="card-btn">
           </button>
           <button class="card-btn" id="downvote-btn">
-            <img alt="decrease quality rating" src="images/downvote.svg" id="downvote">
+            <img alt="decrease quality rating" src="images/downvote.svg" id="downvote" class="card-btn">
           </button>
           <button class="card-btn" id="delete-btn">
-            <img alt="Delete idea card" class="btn-img" id="delete" src="images/delete.svg" >
+            <img alt="Delete idea card" class="card-btn" id="delete" src="images/delete.svg" >
           </button>
           <p class="quality-label">
             Quality: 
@@ -89,23 +89,32 @@ function clearInputs() {
   bodyInput.value = '';
 }
 
-function cardButtonClick(e) {
+function editCard(e) {
+  var clickedElement = e.target;
   var targetCard = e.target.parentElement.parentElement.parentElement;
   var targetCardId = parseInt(targetCard.dataset.id);
   var targetObj = ideaArray.find(idea => idea.id === targetCardId);
   var objIndex = ideaArray.indexOf(targetObj);
   var targetIdea = new Idea(targetObj.id, targetObj.title, targetObj.body, targetObj.quality);
-  if (e.target.id === 'delete') {
-    deleteCard(targetCardId, targetCard);
+if (e.target.matches('.card-btn')) {
+  cardButtons(clickedElement, targetCard, targetCardId, targetIdea, objIndex);
   }
-  if (e.target.id === 'upvote') {
-    increaseQuality(targetCard, targetIdea, objIndex);
-  }
-  if (e.target.id === 'downvote') {
-    // console.log("decreaseQuality");
-  }
+  // var qualityText = e.target.offsetParent.lastElementChild.lastElementChild.innerText;
+// if (e.target.matches('')) 
 }
 
+function cardButtons (button, card, cardId, idea, index){
+var cardQuality = card.lastElementChild.lastElementChild.lastElementChild;
+  if (button.id === 'delete') {
+    deleteCard(cardId, card);
+  }
+  if (button.id === 'upvote') {
+    increaseQuality(card, idea, index, cardQuality);
+  }
+  if (button.id === 'downvote') {
+    decreaseQuality(card, idea, index, cardQuality);
+  }
+}
 function deleteCard(id, card) {
   var ideaToDelete = new Idea(id);
   card.remove();
@@ -113,7 +122,7 @@ function deleteCard(id, card) {
   ideaToDelete.deleteFromStorage(ideaArray);
 }
 
-function increaseQuality(card, idea, index) {
+function increaseQuality(card, idea, index, quality) {
   var updatedIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
   if (idea.quality === 'Swill') {
     updatedIdea.quality = qualityArray[1];
@@ -121,7 +130,20 @@ function increaseQuality(card, idea, index) {
   if (idea.quality === 'Plausible') {
     updatedIdea.quality = qualityArray[2];
   }
-  card.lastElementChild.lastElementChild.lastElementChild.innerText = updatedIdea.quality;
+  quality.innerText = updatedIdea.quality;
+  ideaArray.splice(index, 1, updatedIdea);
+  updatedIdea.updateQuality(ideaArray);
+}
+
+function decreaseQuality(card, idea, index, quality) {
+  var updatedIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
+  if (idea.quality === 'Genius') {
+    updatedIdea.quality = qualityArray[1];
+  }
+  if (idea.quality === 'Plausible') {
+    updatedIdea.quality = qualityArray[0];
+  }
+  quality.innerText = updatedIdea.quality;
   ideaArray.splice(index, 1, updatedIdea);
   updatedIdea.updateQuality(ideaArray);
 }
