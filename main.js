@@ -7,6 +7,7 @@ var titleInput = document.querySelector('#title-input');
 var ideaArray = [] ;
 var qualityArray = ['Swill', 'Plausible', 'Genius'];
 
+
 cardSection.addEventListener('click', editCard);
 saveBtn.addEventListener('click', saveIdea);
 searchBtn.addEventListener('click', searchIdeas);
@@ -96,11 +97,9 @@ function editCard(e) {
   var targetObj = ideaArray.find(idea => idea.id === targetCardId);
   var objIndex = ideaArray.indexOf(targetObj);
   var targetIdea = new Idea(targetObj.id, targetObj.title, targetObj.body, targetObj.quality);
-if (e.target.matches('.card-btn')) {
+  if (e.target.matches('.card-btn')) {
   cardButtons(clickedElement, targetCard, targetCardId, targetIdea, objIndex);
   }
-  // var qualityText = e.target.offsetParent.lastElementChild.lastElementChild.innerText;
-// if (e.target.matches('')) 
 }
 
 function cardButtons (button, card, cardId, idea, index){
