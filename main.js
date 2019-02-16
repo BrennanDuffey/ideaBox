@@ -34,9 +34,6 @@ function saveIdea(e) {
     clearInputs();
 }
 
-
-
-
 function typeSearch() {
   var filterIdeas = ideaArray.filter(function(idea) {
     return idea.body.includes(searchInput.value) || idea.title.includes(searchInput.value);
@@ -98,7 +95,6 @@ function cardButtonClick(e) {
   var targetObj = ideaArray.find(idea => idea.id === targetCardId);
   var objIndex = ideaArray.indexOf(targetObj);
   var targetIdea = new Idea(targetObj.id, targetObj.title, targetObj.body, targetObj.quality);
-  // console.log(objIndex)
   if (e.target.id === 'delete') {
     deleteCard(targetIdea);
   }
@@ -106,7 +102,7 @@ function cardButtonClick(e) {
     increaseQuality(targetCard, targetIdea, objIndex);
   }
   if (e.target.id === 'downvote') {
-    console.log("decreaseQuality");
+    // console.log("decreaseQuality");
   }
 }
 
