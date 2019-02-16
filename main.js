@@ -96,7 +96,7 @@ function cardButtonClick(e) {
   var objIndex = ideaArray.indexOf(targetObj);
   var targetIdea = new Idea(targetObj.id, targetObj.title, targetObj.body, targetObj.quality);
   if (e.target.id === 'delete') {
-    deleteCard(targetIdea);
+    deleteCard(targetCardId, targetCard);
   }
   if (e.target.id === 'upvote') {
     increaseQuality(targetCard, targetIdea, objIndex);
@@ -106,8 +106,8 @@ function cardButtonClick(e) {
   }
 }
 
-function deleteCard(card) {
-  var ideaToDelete = new Idea(card.dataset.id);
+function deleteCard(id, card) {
+  var ideaToDelete = new Idea(id);
   card.remove();
   ideaArray = ideaArray.filter(obj => obj.id !=ideaToDelete.id);
   ideaToDelete.deleteFromStorage(ideaArray);
