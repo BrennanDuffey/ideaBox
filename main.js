@@ -1,35 +1,63 @@
 var bodyInput = document.querySelector('#body-input');
 var cardSection = document.querySelector('.card-section');
-// var ideaCard = document.querySelector('.idea-card');
 var saveBtn = document.querySelector('.save-btn');
-// var searchInput = document.querySelector('.search-input');
+var searchBtn = document.querySelector('.search-btn');
+var searchInput = document.querySelector('.search-input');
 var titleInput = document.querySelector('#title-input');
-var ideaArray = JSON.parse(localStorage.getItem("storedIdeas")) || [];
-var qualityArray = ['swill', 'plausible', 'genius'];
+var ideaArray = [] ;
+var qualityArray = ['Swill', 'Plausible', 'Genius'];
 
 cardSection.addEventListener('click', cardButtonClick);
-window.addEventListener('load', onPageLoad);
 saveBtn.addEventListener('click', saveIdea);
+searchBtn.addEventListener('click', searchIdeas);
+searchInput.addEventListener('keydown', typeSearch);
+window.addEventListener('load', onPageLoad);
 
 function onPageLoad() {
-    ideaArray.forEach(function(idea) {
-        var oldIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
-        appendCard(oldIdea);
-        clearInputs();
-        // ideaArray.push(newIdea);
-        // this just doubles the array size on load for some reason pretty sure we don't need
+  if (localStorage.hasOwnProperty("storedIdeas")){
+    var parsedArray = JSON.parse(localStorage.getItem("storedIdeas"));
+    parsedArray.forEach(function(idea) {
+    var oldIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
+      appendCard(oldIdea);
+      ideaArray.push(oldIdea);
+      oldIdea.saveToStorage(ideaArray);
     });
+  }
 }
 
 function saveIdea(e) {
     e.preventDefault();
-    let newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
+    var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
     appendCard(newIdea);
     ideaArray.push(newIdea);
     newIdea.saveToStorage(ideaArray);
     clearInputs();
 }
 
+
+
+
+function typeSearch() {
+  var filterIdeas = ideaArray.filter(function(idea) {
+    return idea.body.includes(searchInput.value) || idea.title.includes(searchInput.value);
+  });
+  cardSection.innerHTML = '';
+  filterIdeas.forEach(function(idea) {
+    appendCard(idea);
+  });
+}
+
+function searchIdeas(e) {
+  e.preventDefault();
+  var filterIdeas = ideaArray.filter(function(idea) {
+    return idea.body.includes(searchInput.value) || idea.title.includes(searchInput.value);
+  });
+  cardSection.innerHTML = '';
+  filterIdeas.forEach(function(idea) {
+    appendCard(idea);
+  });
+  searchInput.value = '';
+}
 function appendCard(idea) {
     cardSection.innerHTML += 
     `<article data-id=${idea.id} class="idea-card">
@@ -48,29 +76,37 @@ function appendCard(idea) {
           <button class="card-btn" id="downvote-btn">
             <img alt="decrease quality rating" src="images/downvote.svg" id="downvote">
           </button>
+          <button class="card-btn" id="delete-btn">
+            <img alt="Delete idea card" class="btn-img" id="delete" src="images/delete.svg" >
+          </button>
           <p class="quality-label">
             Quality: 
             <span class="card-quality">${idea.quality}</span>
           </p>
-          <button class="card-btn" id="delete-btn">
-            <img alt="Delete idea card" class="btn-img" id="delete" src="images/delete.svg" >
-          </button>
         </div>
       </article>`;
 }
 
 function clearInputs() {
-    titleInput.value = '';
-    bodyInput.value = '';
+  titleInput.value = '';
+  bodyInput.value = '';
 }
 
 function cardButtonClick(e) {
   var targetCard = e.target.parentElement.parentElement.parentElement;
+  var targetCardId = parseInt(targetCard.dataset.id);
+  var targetObj = ideaArray.find(idea => idea.id === targetCardId);
+  var objIndex = ideaArray.indexOf(targetObj);
+  var targetIdea = new Idea(targetObj.id, targetObj.title, targetObj.body, targetObj.quality);
+  // console.log(objIndex)
   if (e.target.id === 'delete') {
-    deleteCard(targetCard);
+    deleteCard(targetIdea);
   }
-  if (e.target.id === 'upvote' || 'downvote') {
-    console.log("change quality");
+  if (e.target.id === 'upvote') {
+    increaseQuality(targetCard, targetIdea, objIndex);
+  }
+  if (e.target.id === 'downvote') {
+    console.log("decreaseQuality");
   }
 }
 
@@ -79,9 +115,18 @@ function deleteCard(card) {
   card.remove();
   ideaArray = ideaArray.filter(obj => obj.id !=ideaToDelete.id);
   ideaToDelete.deleteFromStorage(ideaArray);
-  console.log(ideaArray);
 }
 
-function decreaseQuality() {
-
+function increaseQuality(card, idea, index) {
+  var updatedIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
+  if (idea.quality === 'Swill') {
+    updatedIdea.quality = qualityArray[1];
+  }
+  if (idea.quality === 'Plausible') {
+    updatedIdea.quality = qualityArray[2];
+  }
+  card.lastElementChild.lastElementChild.lastElementChild.innerText = updatedIdea.quality;
+  ideaArray.splice(index, 1, updatedIdea);
+  updatedIdea.updateQuality(ideaArray);
 }
+
