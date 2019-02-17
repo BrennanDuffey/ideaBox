@@ -108,7 +108,9 @@ function editCard(e) {
 function cardButtons (button, card, cardId, idea, index){
 var cardQuality = card.lastElementChild.lastElementChild.lastElementChild;
   if (button.id === 'delete') {
-    deleteCard(cardId, card);
+    card.remove();
+    ideaArray[index].deleteFromStorage(index)
+    // deleteCard(cardId, card);
   }
   if (button.id === 'upvote') {
     increaseQuality(card, idea, index, cardQuality);
@@ -118,12 +120,11 @@ var cardQuality = card.lastElementChild.lastElementChild.lastElementChild;
   }
 }
 
-function deleteCard(id, card) {
-  var ideaToDelete = new Idea(id);
-  card.remove();
-  ideaArray = ideaArray.filter(obj => obj.id !=ideaToDelete.id);
-  ideaToDelete.deleteFromStorage(ideaArray);
-}
+// function deleteCard(id, card) {
+//   var ideaToDelete = new Idea(id);
+//   ideaArray = ideaArray.filter(obj => obj.id !=ideaToDelete.id);
+//   ideaToDelete.deleteFromStorage(ideaArray);
+// }
 
 function increaseQuality(card, idea, index, quality) {
   var updatedIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
