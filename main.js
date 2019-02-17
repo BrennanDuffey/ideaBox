@@ -14,6 +14,7 @@ searchBtn.addEventListener('click', searchIdeas);
 searchInput.addEventListener('keydown', typeSearch);
 window.addEventListener('load', onPageLoad);
 
+
 function onPageLoad() {
   if (localStorage.hasOwnProperty("storedIdeas")){
     var parsedArray = JSON.parse(localStorage.getItem("storedIdeas"));
@@ -60,10 +61,10 @@ function appendCard(idea) {
     cardSection.innerHTML += 
     `<article data-id=${idea.id} class="idea-card">
         <div class="card-main">
-          <h2 class="card-text card-title" contenteditable="true">
+          <h2 class="card-text" id="card-title" contenteditable="true">
             ${idea.title}
           </h2>
-          <p class="card-text card-body" contenteditable="true">
+          <p class="card-text" id="card-body" contenteditable="true">
             ${idea.body}
           </p>
         </div>
@@ -92,7 +93,7 @@ function clearInputs() {
 
 function editCard(e) {
   var clickedElement = e.target;
-  var targetCard = e.target.parentElement.parentElement.parentElement;
+  var targetCard = e.target.closest('.idea-card');
   var targetCardId = parseInt(targetCard.dataset.id);
   var targetObj = ideaArray.find(idea => idea.id === targetCardId);
   var objIndex = ideaArray.indexOf(targetObj);
@@ -100,6 +101,8 @@ function editCard(e) {
   if (e.target.matches('.card-btn')) {
   cardButtons(clickedElement, targetCard, targetCardId, targetIdea, objIndex);
   }
+  if (e.target.matches('.card-text')) {
+      editCardText(clickedElement, targetIdea, objIndex);
 }
 
 function cardButtons (button, card, cardId, idea, index){
@@ -114,6 +117,7 @@ var cardQuality = card.lastElementChild.lastElementChild.lastElementChild;
     decreaseQuality(card, idea, index, cardQuality);
   }
 }
+
 function deleteCard(id, card) {
   var ideaToDelete = new Idea(id);
   card.remove();
@@ -146,4 +150,31 @@ function decreaseQuality(card, idea, index, quality) {
   ideaArray.splice(index, 1, updatedIdea);
   updatedIdea.updateQuality(ideaArray);
 }
+
+function editCardText(field, idea, index) {
+  var updatedIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
+  field.addEventListener('blur', function(){
+    if (field.id === 'card-title') {
+      updatedIdea.title = field.innerText;
+    } else if (field.id ==='card-body') {
+      updatedIdea.body = field.innerText;
+    }
+  ideaArray.splice(index, 1, updatedIdea);
+  updatedIdea.updateContent(ideaArray);
+  });
+}
+}
+// function editCardListeners(field, idea, index){
+
+//   debugger
+//   field.addEventListener('keydown',function(e){
+//     if (e.keyCode === 13) {
+//       debugger
+//       field.contenteditable = false;
+//       editCardText(field, idea, index);
+//     }
+//   }); 
+
+// }
+
 
