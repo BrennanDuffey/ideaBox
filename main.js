@@ -4,15 +4,18 @@ var saveBtn = document.querySelector('.save-btn');
 var searchBtn = document.querySelector('.search-btn');
 var searchInput = document.querySelector('.search-input');
 var titleInput = document.querySelector('#title-input');
+var filterBtns = document.querySelector('.filter-buttons');
 var ideaArray = [] ;
 var qualityArray = ['Swill', 'Plausible', 'Genius'];
 
-
+window.addEventListener('load', onPageLoad);
 cardSection.addEventListener('click', editCard);
 saveBtn.addEventListener('click', saveIdea);
 searchBtn.addEventListener('click', searchIdeas);
 searchInput.addEventListener('keydown', typeSearch);
-window.addEventListener('load', onPageLoad);
+filterBtns.addEventListener('click', filterByQuality);
+
+// cardSection.addEventListener('keydown', saveOnReturn);
 
 
 function onPageLoad() {
@@ -91,6 +94,16 @@ function clearInputs() {
   bodyInput.value = '';
 }
 
+function filterByQuality(e) {
+  if (e.target.classList.contains('filter-btn')){
+  let filteredIdeas = ideaArray.filter(idea => idea.quality === e.target.innerText);
+  cardSection.innerHTML = '';
+  filteredIdeas.forEach(idea => 
+    appendCard(idea));
+  }
+}
+
+
 function editCard(e) {
   var clickedElement = e.target;
   var targetCard = e.target.closest('.idea-card');
@@ -153,7 +166,7 @@ function decreaseQuality(card, idea, index, quality) {
 
 function editCardText(field, idea, index) {
   var updatedIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
-  field.addEventListener('blur', function(){
+  field.addEventListener('input', function(){
     if (field.id === 'card-title') {
       updatedIdea.title = field.innerText;
     } else if (field.id ==='card-body') {
@@ -164,6 +177,10 @@ function editCardText(field, idea, index) {
   });
 }
 }
+
+
+
+// function saveOnReturn()
 // function editCardListeners(field, idea, index){
 
 //   debugger
