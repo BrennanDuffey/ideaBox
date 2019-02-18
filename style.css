@@ -77,14 +77,16 @@ h1 span {
 .new-idea-form {
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 
 .form-label {
   font-size: 18px;
-  left: 10px;
   position: relative;
   top: 4px;
+}
+
+.user-input {
+  width: 550px;
 }
 
 #title-input {
@@ -219,6 +221,41 @@ h1 span {
   border-radius: 5px;
   border: solid 2px #DAD9DE;
   margin-bottom: 20px;
-  max-width: 500px;
-  width: 50%;
+  width: 550px;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    display: block;
+    height: 130px;
+  }
+
+  h1 {
+    font-size: 33px;
+    padding: 10px 0px;
+    text-align: center;
+  }
+
+  .header-search {
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    padding: 10px 0px;
+  }
+
+  .search-input {
+    width: 228px;
+  }
+
+  .new-idea-form,
+  .user-input,
+  .idea-card {
+    width: 100%;
+  }
+
+  .filter-btn {
+    display: block;
+    height: 40px;
+    width: 80%;
+  }
 }

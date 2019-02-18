@@ -12,7 +12,7 @@ window.addEventListener('load', onPageLoad);
 cardSection.addEventListener('click', editCard);
 saveBtn.addEventListener('click', saveIdea);
 searchBtn.addEventListener('click', searchIdeas);
-searchInput.addEventListener('keydown', typeSearch);
+searchInput.addEventListener('input', typeSearch);
 filterBtns.addEventListener('click', filterByQuality);
 
 // cardSection.addEventListener('keydown', saveOnReturn);
