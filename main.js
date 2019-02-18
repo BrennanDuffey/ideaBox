@@ -11,7 +11,7 @@ var qualityArray = ['Swill', 'Plausible', 'Genius'];
 cardSection.addEventListener('click', editCard);
 saveBtn.addEventListener('click', saveIdea);
 searchBtn.addEventListener('click', searchIdeas);
-searchInput.addEventListener('keydown', typeSearch);
+searchInput.addEventListener('input', typeSearch);
 window.addEventListener('load', onPageLoad);
 
 
