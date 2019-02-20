@@ -30,8 +30,8 @@ header {
 h1 {
   align-self: center;
   color: #ADA6CA;
-  font-weight: 800;
   cursor: default;
+  font-weight: 800;
 }
 
 h1 span {
@@ -120,7 +120,7 @@ h1 span {
 }
 
 .filter-btn {
-  background-color: #6e646b;
+  background-color: #87819f;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
@@ -130,9 +130,13 @@ h1 span {
   width: 170px;
 }
 
-.filter-btn:hover,
 .save-btn:hover {
   background-color: #524649;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: #66607b;
   cursor: pointer;
 }
 
@@ -256,6 +260,6 @@ h1 span {
   .filter-btn {
     display: block;
     height: 40px;
-    width: 80%;
+    width: 92%;
   }
 }
