@@ -94,32 +94,32 @@ function searchIdeas(e) {
 }
 
 function appendCard(idea) {
-    cardSection.innerHTML += 
-    `<article data-id=${idea.id} class="idea-card">
-        <div class="card-main">
-          <h2 class="card-text" id="card-title" contenteditable="true">
-            ${idea.title}
-          </h2>
-          <p class="card-text" id="card-body" contenteditable="true">
-            ${idea.body}
-          </p>
-        </div>
-        <div class="card-footer">
-          <button class="card-btn" id="upvote-btn">
-            <img alt="increase quality rating" src="images/upvote.svg" id="upvote" class="card-btn">
-          </button>
-          <button class="card-btn" id="downvote-btn">
-            <img alt="decrease quality rating" src="images/downvote.svg" id="downvote" class="card-btn">
-          </button>
-          <button class="card-btn" id="delete-btn">
-            <img alt="Delete idea card" class="card-btn" id="delete" src="images/delete.svg" >
-          </button>
-          <p class="quality-label">
-            Quality: 
-            <span class="card-quality">${idea.quality}</span>
-          </p>
-        </div>
-      </article>`;
+  cardSection.innerHTML += 
+  `<article data-id=${idea.id} class="idea-card">
+    <div class="card-main">
+      <h2 class="card-text" id="card-title" contenteditable="true">
+        ${idea.title}
+      </h2>
+      <p class="card-text" id="card-body" contenteditable="true">
+        ${idea.body}
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="card-btn" id="upvote-btn">
+        <img alt="increase quality rating" src="images/upvote.svg" id="upvote" class="card-btn">
+      </button>
+      <button class="card-btn" id="downvote-btn">
+        <img alt="decrease quality rating" src="images/downvote.svg" id="downvote" class="card-btn">
+      </button>
+      <button class="card-btn" id="delete-btn">
+        <img alt="Delete idea card" class="card-btn" id="delete" src="images/delete.svg" >
+      </button>
+      <p class="quality-label">
+        Quality: 
+        <span class="card-quality">${idea.quality}</span>
+      </p>
+    </div>
+  </article>`;
 }
 
 function clearInputs() {
@@ -148,6 +148,7 @@ function editCard(e) {
   }
   if (e.target.matches('.card-text')) {
       editCardText(e.target, targetIdea, objIndex);
+  }
 }
 
 function cardButtons (button, card, cardId, idea, index){
@@ -208,9 +209,6 @@ function editCardText(field, idea, index) {
   updatedIdea.updateContent(ideaArray);
   });
 }
-}
-
-
 
 
 
