@@ -1,6 +1,5 @@
 /*/////UNIVERSAL/////*/
 
-
 *,
 *:after,
 *:before {
@@ -136,6 +135,7 @@ h1 span {
   cursor: pointer;
 }
 
+
 /*/////CARD SECTION/////*/
 
 
@@ -224,6 +224,18 @@ h1 span {
   width: 550px;
 }
 
+
+/*/////FOOTER/////*/
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+
+/*/////MEDIA QUERIES/////*/
+
+
 @media only screen and (max-width: 600px) {
   header {
     display: block;
@@ -253,9 +265,6 @@ h1 span {
     width: 100%;
   }
 
-  .filter-btn {
-    display: block;
-    height: 40px;
-    width: 80%;
-  }
 }
+
+
