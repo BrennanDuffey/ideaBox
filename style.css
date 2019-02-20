@@ -119,7 +119,7 @@ h1 span {
 }
 
 .filter-btn {
-  background-color: #87819f;
+  background-color: #8e86ad;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
@@ -135,7 +135,7 @@ h1 span {
 }
 
 .filter-btn:hover {
-  background-color: #66607b;
+  background-color: #665c8a;
   cursor: pointer;
 }
 
