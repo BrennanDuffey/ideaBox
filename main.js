@@ -30,7 +30,6 @@ function onPageLoad() {
   if (ideaArray.length >= 11) {
     const tenCards = ideaArray.slice(-10);
     tenCards.forEach(card => appendCard(card))
-    // hideFooter()  
   } else {
     ideaArray.forEach(idea => appendCard(idea))
   }
