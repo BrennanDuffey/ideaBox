@@ -14,13 +14,13 @@ class Idea {
         this.saveToStorage(ideaArray);
     }
 
-    updateContent(index, idea) {
-        ideaArray.splice(index, 1, idea);
+    updateContent(index) {
+        ideaArray.splice(index, 1, this);
         this.saveToStorage(ideaArray);
     }
 
-    updateQuality(index, idea) {
-      ideaArray.splice(index, 1, idea);
+    updateQuality(index) {
+      ideaArray.splice(index, 1, this);
         this.saveToStorage(ideaArray);
     }
 }

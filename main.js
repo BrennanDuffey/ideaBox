@@ -160,7 +160,7 @@ function increaseQuality(idea, index, quality) {
     updatedIdea.quality = qualityArray[2];
   }
   quality.innerText = updatedIdea.quality;
-  updatedIdea.updateQuality(index, updatedIdea);
+  updatedIdea.updateQuality(index);
 }
 
 function decreaseQuality(idea, index, quality) {
@@ -171,7 +171,7 @@ function decreaseQuality(idea, index, quality) {
     updatedIdea.quality = qualityArray[0];
   }
   quality.innerText = updatedIdea.quality;
-  updatedIdea.updateQuality(index, updatedIdea);
+  updatedIdea.updateQuality(index);
 }
 
 function editCardText(field, idea, index) {
@@ -182,6 +182,6 @@ function editCardText(field, idea, index) {
     } else if (field.id ==='card-body') {
       updatedIdea.body = field.innerText;
     }
-  updatedIdea.updateContent(index, updatedIdea);
+  updatedIdea.updateContent(index);
   });
 }
