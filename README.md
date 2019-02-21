@@ -62,9 +62,9 @@ IdeaBox Triples was a project assigned to a group of three in Mod 1 at Turing.  
 7) Upon reloading page, all current idea cards will persist and be displayed.
 
 
-## Setup [the URL to the published site should be inserted into the 'here' link]
+## Setup
 
-This site can be viewed <a href="xxxxxxx">here</a> on GitHub.
+This site can be viewed <a href="https://brennanduffey.github.io/ideaBox/">here</a> on GitHub.
 
 ## License
 
