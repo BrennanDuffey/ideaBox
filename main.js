@@ -36,14 +36,6 @@ function onPageLoad() {
   }
 }
 
-// function hideFooter() {
-//   const footer = document.querySelector('footer'); 
-//   if (cardSection.children.length >= 11) {
-//     footer.classList.remove('hidden');
-//   }
-//   console.log(footer);
-// }
-
 function saveIdea(e) {
     e.preventDefault();
     var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
