@@ -17,11 +17,9 @@ A project creating a UI from a flat image using HTML, CSS, and JS for Turing's F
 
 IdeaBox Triples was a project assigned to a group of three in Mod 1 at Turing.  We were given a flat image with styling details (e.g. hex codes) to reproduce from scratch in code.  This project consisted working partly with HTML and CSS, but primarily with JS.  This is the original design in desktop and mobile formats:
 
-<img src="http://frontend.turing.io/assets/images/projects/ideabox/ideabox-triples-01.jpg" alt="Original flat image for desktop">
+<img src="https://github.com/BrennanDuffey/ideaBox/blob/master/images/original1.jpg" alt="Original flat image for desktop">
 
-<img src="http://frontend.turing.io/assets/images/projects/ideabox/ideabox-triples-02.jpg" alt="Original flat image for mobile">
-
-<img src="https://github.com/BrennanDuffey/ideaBox/blob/master/images/original1.jpg" alt="Original flat image for mobile">
+<img src="https://github.com/BrennanDuffey/ideaBox/blob/master/images/original2.jpg" alt="Original flat image for mobile">
 
 
 ## Built With
@@ -32,8 +30,10 @@ IdeaBox Triples was a project assigned to a group of three in Mod 1 at Turing.  
 
 
 ## Screenshots
-
-
+<img src="https://github.com/BrennanDuffey/ideaBox/blob/master/images/desktop1.png" alt="Screenshot of site for desktop">
+<img src="https://github.com/BrennanDuffey/ideaBox/blob/master/images/desktop2.png" alt="Screenshot of site for desktop">
+<img src="https://github.com/BrennanDuffey/ideaBox/blob/master/images/mobile1.png" alt="Screenshot of site for mobile">
+<img src="https://github.com/BrennanDuffey/ideaBox/blob/master/images/mobile2.png" alt="Screenshot of site for mobile">
 
 ## Features
 
@@ -52,14 +52,8 @@ See how the page responds to different screen sizes by viewing on mobile or resi
 
 ## Setup
 
-View <a href="https://github.com/lynnerang/lr-comp-challenge-2">here</a> on my GitHub.
-
-OR 
-
-Download and unzip the dlr-comp-challenge-2.zip file, and open the index.html file to view the website.
-
+View <a href="xxxxxxx">here</a> on my GitHub.
 
 ## License
 
-All credit goes to Turing School of Software for providing the project specifications and website design.
-
+The project specifications and website design were provided by Turing School of Software.
