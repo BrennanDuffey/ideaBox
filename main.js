@@ -1,21 +1,21 @@
 var bodyInput = document.querySelector('#body-input');
 var cardSection = document.querySelector('.card-section');
+var filterBtns = document.querySelector('.filter-buttons');
 var saveBtn = document.querySelector('.save-btn');
 var searchBtn = document.querySelector('.search-btn');
 var searchInput = document.querySelector('.search-input');
-var titleInput = document.querySelector('#title-input');
 var showMoreBtn = document.querySelector('#show-more-btn');
-var filterBtns = document.querySelector('.filter-buttons');
+var titleInput = document.querySelector('#title-input');
 var ideaArray = [] ;
 var qualityArray = ['Swill', 'Plausible', 'Genius'];
 
-showMoreBtn.addEventListener('click', showMore);
 cardSection.addEventListener('click', editCard);
+filterBtns.addEventListener('click', filterByQuality);
 saveBtn.addEventListener('click', saveIdea);
 searchBtn.addEventListener('click', searchIdeas);
 searchInput.addEventListener('input', typeSearch);
+showMoreBtn.addEventListener('click', showMore);
 window.addEventListener('load', onPageLoad);
-filterBtns.addEventListener('click', filterByQuality);
 
 
 function onPageLoad() {
@@ -37,12 +37,12 @@ function onPageLoad() {
 }
 
 function saveIdea(e) {
-    e.preventDefault();
-    var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
-    ideaArray.push(newIdea);
-    appendCard(newIdea);
-    newIdea.saveToStorage(ideaArray);
-    clearInputs();
+  e.preventDefault();
+  var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
+  ideaArray.push(newIdea);
+  appendCard(newIdea);
+  newIdea.saveToStorage(ideaArray);
+  clearInputs();
 }
 
 function showMore() {
@@ -50,7 +50,7 @@ function showMore() {
     cardSection.innerHTML = '';
     ideaArray.forEach(idea => appendCard(idea));
     showMoreBtn.innerText = 'Show Less...';
-  } else if (showMoreBtn.innerText === 'Show Less...'){
+  } else if (showMoreBtn.innerText === 'Show Less...') {
     cardSection.innerHTML = '';
     var topTen = ideaArray.slice(-10);
     topTen.forEach(function(idea) {
