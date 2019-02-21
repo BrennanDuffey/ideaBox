@@ -130,14 +130,14 @@ function editCard(e) {
   var targetIdea = ideaArray.find(idea => idea.id === targetCardId);
   var objIndex = ideaArray.indexOf(targetIdea);
   if (e.target.matches('.card-btn')) {
-  cardButtons(e.target, targetCard, targetCardId, targetIdea, objIndex);
+    cardButtons(e.target, targetCard, targetCardId, targetIdea, objIndex);
   }
   if (e.target.matches('.card-text')) {
-      editCardText(e.target, targetIdea, objIndex);
+    editCardText(e.target, targetIdea, objIndex);
   }
 }
 
-function cardButtons (button, card, cardId, idea, index){
+function cardButtons (button, card, cardId, idea, index) {
 var cardQuality = card.lastElementChild.lastElementChild.lastElementChild;
   if (button.id === 'delete') {
     card.remove();
@@ -181,6 +181,6 @@ function editCardText(field, idea, index) {
     } else if (field.id ==='card-body') {
       updatedIdea.body = field.innerText;
     }
-  updatedIdea.updateContent(index);
+    updatedIdea.updateContent(index);
   });
 }
