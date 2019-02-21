@@ -22,10 +22,8 @@ function onPageLoad() {
   if (localStorage.hasOwnProperty("storedIdeas")) {
     var parsedArray = JSON.parse(localStorage.getItem("storedIdeas"));
     parsedArray.forEach(function(idea) {
-      // debugger
       const oldIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
       ideaArray.push(oldIdea);
-      // oldIdea.saveToStorage(ideaArray);
       });
     console.log(ideaArray)
   }
@@ -38,7 +36,6 @@ function onPageLoad() {
   }
 }
 
-
 // function hideFooter() {
 //   const footer = document.querySelector('footer'); 
 //   if (cardSection.children.length >= 11) {
@@ -47,7 +44,8 @@ function onPageLoad() {
 //   console.log(footer);
 // }
 
-function saveIdea() {
+function saveIdea(e) {
+    e.preventDefault();
     var newIdea = new Idea(Date.now(), titleInput.value, bodyInput.value);
     ideaArray.push(newIdea);
     appendCard(newIdea);
@@ -58,7 +56,6 @@ function saveIdea() {
 function showMore() {
   if (showMoreBtn.innerText === 'Show More...') {
     cardSection.innerHTML = '';
-    debugger
     ideaArray.forEach(idea => appendCard(idea));
     showMoreBtn.innerText = 'Show Less...';
   } else if (showMoreBtn.innerText === 'Show Less...'){
@@ -136,13 +133,11 @@ function filterByQuality(e) {
   }
 }
 
-
 function editCard(e) {
   var targetCard = e.target.closest('.idea-card');
-  var targetObj = ideaArray.find(idea => idea.id === targetCardId);
-  var objIndex = ideaArray.indexOf(targetObj);
-  var targetIdea = new Idea(targetObj.id, targetObj.title, targetObj.body, targetObj.quality);
   var targetCardId = parseInt(targetCard.dataset.id);
+  var targetIdea = ideaArray.find(idea => idea.id === targetCardId);
+  var objIndex = ideaArray.indexOf(targetIdea);
   if (e.target.matches('.card-btn')) {
   cardButtons(e.target, targetCard, targetCardId, targetIdea, objIndex);
   }
@@ -154,47 +149,37 @@ function editCard(e) {
 function cardButtons (button, card, cardId, idea, index){
 var cardQuality = card.lastElementChild.lastElementChild.lastElementChild;
   if (button.id === 'delete') {
-    deleteCard(cardId, card);
+    card.remove();
+    idea.deleteFromStorage(index);
   }
   if (button.id === 'upvote') {
-    increaseQuality(card, idea, index, cardQuality);
+    increaseQuality(idea, index, cardQuality);
   }
   if (button.id === 'downvote') {
-    decreaseQuality(card, idea, index, cardQuality);
+    decreaseQuality(idea, index, cardQuality);
   }
 }
 
-function deleteCard(id, card) {
-  var ideaToDelete = new Idea(id);
-  card.remove();
-  ideaArray = ideaArray.filter(obj => obj.id !=ideaToDelete.id);
-  ideaToDelete.deleteFromStorage(ideaArray);
-}
-
-function increaseQuality(card, idea, index, quality) {
+function increaseQuality(idea, index, quality) {
   var updatedIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
-  if (idea.quality === 'Swill') {
+  if (updatedIdea.quality === 'Swill') {
     updatedIdea.quality = qualityArray[1];
-  }
-  if (idea.quality === 'Plausible') {
+  } else if (updatedIdea.quality === 'Plausible') {
     updatedIdea.quality = qualityArray[2];
   }
   quality.innerText = updatedIdea.quality;
-  ideaArray.splice(index, 1, updatedIdea);
-  updatedIdea.updateQuality(ideaArray);
+  updatedIdea.updateQuality(index, updatedIdea);
 }
 
-function decreaseQuality(card, idea, index, quality) {
+function decreaseQuality(idea, index, quality) {
   var updatedIdea = new Idea(idea.id, idea.title, idea.body, idea.quality);
-  if (idea.quality === 'Genius') {
+  if (updatedIdea.quality === 'Genius') {
     updatedIdea.quality = qualityArray[1];
-  }
-  if (idea.quality === 'Plausible') {
+  } else if (updatedIdea.quality === 'Plausible') {
     updatedIdea.quality = qualityArray[0];
   }
   quality.innerText = updatedIdea.quality;
-  ideaArray.splice(index, 1, updatedIdea);
-  updatedIdea.updateQuality(ideaArray);
+  updatedIdea.updateQuality(index, updatedIdea);
 }
 
 function editCardText(field, idea, index) {
@@ -205,11 +190,6 @@ function editCardText(field, idea, index) {
     } else if (field.id ==='card-body') {
       updatedIdea.body = field.innerText;
     }
-  ideaArray.splice(index, 1, updatedIdea);
-  updatedIdea.updateContent(ideaArray);
+  updatedIdea.updateContent(index, updatedIdea);
   });
 }
-
-
-
-

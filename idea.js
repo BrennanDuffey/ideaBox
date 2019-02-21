@@ -4,21 +4,24 @@ class Idea {
         this.title = title;
         this.body = body;
         this.quality = quality || 'Swill';
+        // this.qualityArray = ['Swill', 'Plausible', 'Genius'];
     }
     saveToStorage(ideaArray) {
         localStorage.setItem("storedIdeas", JSON.stringify(ideaArray));
     }
 
-    deleteFromStorage(updatedArray) {
-        this.saveToStorage(updatedArray);
-        // localStorage.setItem("storedIdeas", JSON.stringify(ideaArray));
+    deleteFromStorage(index) {
+        ideaArray.splice(index, 1)
+        this.saveToStorage(ideaArray);
     }
 
-    updateContent(array) {
-        this.saveToStorage(array);
+    updateContent(index, idea) {
+        ideaArray.splice(index, 1, idea);
+        this.saveToStorage(ideaArray);
     }
 
-    updateQuality(array) {
-        this.saveToStorage(array);
+    updateQuality(index, idea) {
+      ideaArray.splice(index, 1, idea);
+        this.saveToStorage(ideaArray);
     }
 }
