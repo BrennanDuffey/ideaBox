@@ -5,7 +5,7 @@ class Idea {
     this.body = body;
     this.quality = quality || 'Swill';
   }
-  
+
   saveToStorage(ideaArray) {
     localStorage.setItem("storedIdeas", JSON.stringify(ideaArray));
   }
