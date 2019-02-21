@@ -41,8 +41,8 @@ IdeaBox Triples was a project assigned to a group of three in Mod 1 at Turing.  
 
 ## Features
 
-– UI built according to project guidelines
-- Responsive for all screen sizes
+* UI built according to project guidelines
+– Responsive for all screen sizes
 - Add new idea card upon submitting form
 - Save in local storage and cards persist on reload 
 - Edit content after idea card has been created
