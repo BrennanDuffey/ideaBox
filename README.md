@@ -1,5 +1,9 @@
 # IdeaBox Triples
 
+## Project partners
+
+#### Kelly Zick, Brennan Duffey, Menashe Borukhov
+
 ## Table of contents
 * [General Info](#General-Info)
 * [Motivation](#Motivation)
@@ -37,22 +41,30 @@ IdeaBox Triples was a project assigned to a group of three in Mod 1 at Turing.  
 
 ## Features
 
-- [x] Responsive (CSS Media Queries for various screen sizes)
-- [x] Pictures of adorable doggos
-- [x] Flex-box styling
-- [x] Grid styling
-- [x] Custom CSS for colored checkboxes
-- [ ] Link destinations
-
+– UI built according to project guidelines
+- Responsive for all screen sizes
+- Add new idea card upon submitting form
+- Save in local storage and cards persist on reload 
+- Edit content after idea card has been created
+– Edit quality of each created card to one of three options
+- Delete card upon hitting X button
+- Search for content in real time while typing in the search box
+– UI shows the 10 most recent cards by default. Clicking "Show more" will display all cards; "Show less" - back to default.
 
 ## How to Use
 
-See how the page responds to different screen sizes by viewing on mobile or resizing your browser window all the way down to 320px wide!
+1) Enter values into the Title and Body form. Upon clicking "Save", a card should appear below with the entered values displayed.
+2) Clicking on the title or body of the card will give the ability to edit the values.
+3) Clicking on the up and down arrows will reassign the quality value of the card to Genius, Plausible and Swill.
+4) Clicking the X button will delete the card.
+5) If there are more than 10 cards, only the 10 most recent cards are displayed. By pressing the "Show more" button, all cards can be viewed. Then by pressing "Show less," it again shows the 10 most recent cards.
+6) Typing in the search box will display results in real time.
+7) Upon reloading page, all current idea cards will persist and be displayed.
 
 
 ## Setup
 
-View <a href="xxxxxxx">here</a> on my GitHub.
+This site can be viewed <a href="xxxxxxx">here</a> on GitHub.
 
 ## License
 
